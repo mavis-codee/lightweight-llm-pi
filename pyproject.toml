@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lightweight-llm-pi"
+version = "0.1.0"
+description = "Offline lightweight LLM assistant for Raspberry Pi with calculator and safety hints."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "mavis-codee" }
+]
+keywords = ["raspberry-pi", "llm", "offline", "safety", "calculator"]
+dependencies = []
+
+[project.optional-dependencies]
+llm = ["llama-cpp-python>=0.3.0"]
+
+[project.scripts]
+qingliang-llm = "lightweight_llm_pi.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

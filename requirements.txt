@@ -1,0 +1,3 @@
+# Core mode has no required third-party dependencies.
+# For local GGUF model loading, install:
+# pip install "llama-cpp-python>=0.3.0"

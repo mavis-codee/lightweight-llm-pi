@@ -77,6 +77,13 @@ winget install --id ggml.llamacpp -e --source winget
 .\scripts\run_llama_cpp_windows.ps1
 ```
 
+最简单的启动方式：
+
+```text
+双击 run.bat 或 chat.bat 进入连续聊天
+双击 ask.bat 单次提问
+```
+
 如果要切回低配 Qwen 模型：
 
 ```powershell

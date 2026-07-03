@@ -50,13 +50,24 @@ python -m lightweight_llm_pi
 
 ## 基础模型实测
 
-当前已验证的第一颗基础模型：
+当前默认基础模型：
+
+```text
+DeepSeek-R1-Distill-Qwen-1.5B-Q4_K_M.gguf
+大小：约 1.12GB
+运行器：llama.cpp CLI，纯 CPU
+用途：推理增强默认模型
+本机实测：约 10-22 tokens/s
+```
+
+低配备用模型：
 
 ```text
 Qwen2.5-0.5B-Instruct-Q4_K_M.gguf
 大小：约 398MB
 运行器：llama.cpp CLI，纯 CPU
-本机实测：约 54 tokens/s
+用途：低配快速模型
+本机实测：约 50-58 tokens/s
 ```
 
 Windows 下可以用：
@@ -66,10 +77,28 @@ winget install --id ggml.llamacpp -e --source winget
 .\scripts\run_llama_cpp_windows.ps1
 ```
 
+如果要切回低配 Qwen 模型：
+
+```powershell
+.\scripts\run_llama_cpp_windows.ps1 -Model "models\Qwen2.5-0.5B-Instruct-Q4_K_M.gguf"
+```
+
 单次提问：
 
 ```powershell
 .\scripts\run_llama_cpp_windows.ps1 -Prompt "你是什么模型"
+```
+
+单次提问默认会隐藏 DeepSeek-R1 的思考段，只显示最终回答。如果要查看完整原始输出：
+
+```powershell
+.\scripts\run_llama_cpp_windows.ps1 -Prompt "7加8等于多少？" -RawOutput
+```
+
+DeepSeek-R1 蒸馏模型会先进行内部推理，输出长度太短时可能还没到最终答案。脚本默认 `-Predict 320`；如果看到“模型还在思考阶段就被截断了”，把参数调大：
+
+```powershell
+.\scripts\run_llama_cpp_windows.ps1 -Prompt "请解一道数学题" -Predict 400
 ```
 
 连续聊天：

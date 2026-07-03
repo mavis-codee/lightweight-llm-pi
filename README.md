@@ -66,6 +66,20 @@ winget install --id ggml.llamacpp -e --source winget
 .\scripts\run_llama_cpp_windows.ps1
 ```
 
+单次提问：
+
+```powershell
+.\scripts\run_llama_cpp_windows.ps1 -Prompt "你是什么模型"
+```
+
+连续聊天：
+
+```powershell
+.\scripts\run_llama_cpp_windows.ps1 -Chat
+```
+
+进入连续聊天后，在模型的 `>` 提示符后输入问题；输入 `/exit` 退出。不要在脚本退出后的 PowerShell 提示符里直接输入问题，否则 PowerShell 会把中文问题当成系统命令。
+
 ## 命令示例
 
 ```text

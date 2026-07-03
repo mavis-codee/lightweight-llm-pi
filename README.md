@@ -48,6 +48,24 @@ python -m lightweight_llm_pi
 
 如果没有模型，程序仍会启动，并提供基础计算和安全提示能力。
 
+## 基础模型实测
+
+当前已验证的第一颗基础模型：
+
+```text
+Qwen2.5-0.5B-Instruct-Q4_K_M.gguf
+大小：约 398MB
+运行器：llama.cpp CLI，纯 CPU
+本机实测：约 54 tokens/s
+```
+
+Windows 下可以用：
+
+```powershell
+winget install --id ggml.llamacpp -e --source winget
+.\scripts\run_llama_cpp_windows.ps1
+```
+
 ## 命令示例
 
 ```text
